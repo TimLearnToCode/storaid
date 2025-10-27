@@ -1,0 +1,86 @@
+
+header {
+  max-height: 47px;
+}
+
+header .container-header {
+  max-height: 50px;
+  padding: 0;
+  background-color: var(--header-background-color);
+  color: var(--text-color-light);
+  display: flex;
+  justify-content: space-between;
+}
+
+header .contact-header {
+  display: flex;
+  align-items: center;
+}
+header .contact-header .mail-header{
+    margin-left: 50px;
+}
+
+header .contact-header .phone {
+  margin-left: 50px;
+  margin-right: 20px;
+}
+
+header .socials {
+  display: flex;
+  align-items: center;
+  justify-content: space-evenly;
+  margin-right: 10px;
+  padding: 0px 0px 5px 0px;
+  gap: 20px;
+}
+
+header .socials div {
+  width: 30px;
+  height: 30px;
+  border-radius: 50%;
+  background-color: var(--button-background-color);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+
+.navbar {
+  display: flex;
+  justify-content: space-between;
+  margin-left: 50px;
+  margin-right: 50px;
+}
+
+.navbar li {
+  display: inline-block;
+}
+
+.navbar li a {
+  color: var(--text-color-green);
+  text-decoration: none;
+  padding: 5px 0;
+  margin: 0px 20px;
+}
+
+.navbar li a:hover {
+  color: var(--text-color-yellow);
+}
+
+
+.button-navbar {
+  max-width: 129px;
+  max-height: 40px;
+  margin-top: 10px;
+  border-radius: 10px;
+  background-color: var(--button-background-color);
+  display: flex;
+  align-items: center;
+}
+
+.button-navbar p {
+  font-size: 15px;
+  margin-left: 5px;
+  margin-right: 5px;
+  color: var(--text-color-green);
+}

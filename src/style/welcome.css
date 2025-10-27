@@ -1,0 +1,48 @@
+.container{
+    display: flex;
+    max-width: 1920px;
+    height: 715px;
+    background-color: var(--background-color-green);
+    
+}
+.text{
+    justify-content: center;
+    align-content: center;
+    margin-left: 200px;
+    color: var(--text-color-light);
+}
+.text h1{
+    font-size: 80px;
+    margin-top: 0;
+    margin-bottom: 0;
+}
+.text span{
+    display: block;
+}
+.text h4{
+    color: var(--text-color-yellow);
+    font-size: 25px;
+    margin-top: 0;
+    margin-bottom: 0;
+}
+.button {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 42px;
+  width: 149px;
+  background-color: var(--button-background-color);
+  border-radius: 5px;
+  cursor: pointer;
+}
+
+.button p {
+  color: var(--text-color-green);
+  margin: 0;
+  font-weight: 600;
+}
+.pic{
+    display: flex;
+    align-items: flex-end;
+    margin-left: 400px;
+}

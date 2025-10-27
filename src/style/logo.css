@@ -1,0 +1,10 @@
+.logo-container{
+    max-width: 1920px;
+    max-height: 148px;
+    display: flex;
+    justify-content: space-around;
+    background-color: var(--logo-background-color);
+    padding-left: 300px;
+    padding-right: 250px;
+    margin-top: 50px;
+}

@@ -1,0 +1,39 @@
+.services-container{
+    max-width: 1404px;
+    max-height: 493px;
+    margin-left: 200px;
+    margin-top: 150px;
+    color: var(--text-color-green);
+}
+
+.services-subtitle{
+    color: var(--text-color-yellow);
+    font-weight: 600;
+    font-size: 25px;
+    margin: 0;
+}
+.services-header{
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    margin: 0;
+}
+.services-title{
+    font-size: 52px;
+    padding-right: 130px;
+    margin-top: 0;
+    & span{
+        display: block;
+    }
+}
+.services-description {
+    margin-top: 0;
+
+    & span{
+        display: block;
+    }
+}
+.services-grid{
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+}
