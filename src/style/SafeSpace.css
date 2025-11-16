@@ -90,6 +90,7 @@
   height: 156px;
   border: 3px solid rgb(209, 208, 208);
   box-shadow: 0 4px 20px rgb(182, 182, 182);
+  border-radius: 10px;
   padding-left: 20px;
 
 }
@@ -104,6 +105,7 @@
   height: 156px;
   border: 3px solid rgb(209, 208, 208);
   box-shadow: 0 4px 20px rgb(182, 182, 182);
+  border-radius: 10px;
   padding-left: 20px;
 }
 .mission span{

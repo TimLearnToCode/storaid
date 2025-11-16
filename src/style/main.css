@@ -10,12 +10,23 @@
   --button-background-color: #F1C30C;
   --background-color-green: #12372acb;
   --background-color-light: #FFFFFF;
+  --background-color-cream: #FAF8EC;
+  --gray-background-color: #ECECEC;
+  --background-color-border: #808080;
+  --backgroundcolor-units: #F1FFEA;
+  --backgroundcolor-green-units: #12372A; 
+
   --logo-background-color: #FAF8EC;
+
   --text-color-light: #F1FFEA;
   --text-color-green: #12372A;
   --text-color-yellow: #F1C30C;
-  --gray-background-color: #ECECEC;
+  --text-color-faq: #555;
+  --text-color-gray: #555;
+
   --yellow: #F1C30C;
+
+  --border-light-yellow: #d3cfa3;
 }
 
 body {
