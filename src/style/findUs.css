@@ -1,0 +1,90 @@
+.findus-container {
+  display: grid;
+  grid-template-columns: 2fr 1.5fr 0.5fr;
+  width: 100%;
+  min-height: 450px;
+}
+
+.findus-left {
+  background-color: var(--background-color-green);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.findus-left img {
+margin: 160px 0 0 0;
+}
+
+.findus-center {
+  background-color: var(--background-color-light-green);
+  padding: 60px 80px;
+}
+
+.findus-center h3 {
+  margin-top: 0;
+  font-size: 32px;
+  color: var(--text-color-green);
+  margin-bottom: 0;
+}
+
+.findus-center p {
+  max-width: 450px;
+  color: var(--text-color-green);
+  margin: 0;
+}
+
+.findus-item {
+  display: flex;
+  gap: 15px;
+  margin-top: 20px;
+}
+
+.findus-icon{
+    background-color: var(--background-color-green);
+    border-radius: 50%;
+    width: 50px;
+    height: 50px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.findus-item img {
+  width: 32px;
+
+}
+
+.findus-social-title {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+  margin-top: 30px;
+  color: var(--text-color-green);
+}
+
+.findus-social-title .line {
+  flex: 1;
+  height: 1px;
+  background-color: var(--text-color-green);
+  max-width: 100px;
+}
+
+.findus-socials {
+  display: flex;
+  gap: 15px;
+}
+.social-icon{
+    background-color: var(--button-background-color);
+    border-radius:50%;
+    width: 30px;
+    height: 30px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.findus-right {
+  background-color: var(--background-color-green);
+}

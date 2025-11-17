@@ -1,0 +1,21 @@
+.contactus-container{
+    height: 467px;
+    background-color: var(--background-color-green);
+}
+.text-contactus h1{
+    display: flex;
+    justify-content: flex-start;
+    color: var(--text-color-light);
+    margin-left: 300px;
+    padding-top: 150px;
+    font-size: 80px;
+    margin-bottom: 0;
+}
+.text-contactus p{
+    color: var(--text-color-light);
+    margin-left: 300px;
+    margin-top: 0;
+    & span{
+        display: block;
+    }
+}
