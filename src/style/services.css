@@ -1,8 +1,8 @@
-.booking-container{
+.container-services{
     height: 467px;
     background-color: var(--background-color-green);
 }
-.text-booking h1{
+.text-services h1{
     display: flex;
     justify-content: flex-start;
     color: var(--text-color-light);
@@ -11,7 +11,7 @@
     font-size: 80px;
     margin-bottom: 0;
 }
-.text-booking p{
+.text-services p{
     color: var(--text-color-light);
     margin-left: 300px;
     margin-top: 0;

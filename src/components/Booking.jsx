@@ -1,100 +1,103 @@
 import { useState } from "react";
 import "../style/booking.css";
 
-function BookingForm() {
-  const [form, setForm] = useState({
-    name: "",
-    email: "",
-    selectedUnit: "",
-    purpose: "",
-  });
+const emptyForm = {
+  name: "",
+  email: "",
+  selectedUnit: "",
+  purpose: "",
+};
 
-  const [result, setResult] = useState("");
+function BookingForm() {
+  const [form, setForm] = useState(emptyForm);
+  const [msg, setMsg] = useState("");
+  const [sending, setSending] = useState(false);
 
   const handleChange = (e) => {
-    setForm({ ...form, [e.target.name]: e.target.value });
+    const { name, value } = e.target;
+    setForm((f) => ({ ...f, [name]: value }));
   };
 
-  const handleSubmit = (e) => {
+  const handleSubmit = async (e) => {
     e.preventDefault();
+    setSending(true);
+    setMsg("");
 
-    fetch("https://win25-jsf-assignment.azurewebsites.net/api/booking", {
-      method: "POST",
-      headers: { "Content-Type": "application/json" },
-      body: JSON.stringify(form),
-    })
-      .then((res) => res.json())
-      .then((data) => {
-        setResult(data.message);
-        setForm({
-          name: "",
-          email: "",
-          selectedUnit: "",
-          purpose: "",
-        });
-      })
-      .catch((err) => console.error("Booking Error:", err));
+    try {
+      const res = await fetch("https://win25-jsf-assignment.azurewebsites.net/api/booking", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify(form),
+      });
+
+      const data = await res.json();
+
+      setMsg(data?.message || "Got a response, but no message?");
+      setForm(emptyForm);
+    } catch (err) {
+      console.error("booking request failed:", err);
+      setMsg("Couldn’t send the form. You can try again in a bit.");
+    } finally {
+      setSending(false);
+    }
   };
-  
   return (
     <section className="booking-section">
       <div className="booking-inner">
         <div className="booking-left">
-          <p className="label">Booking Unit</p>
-          <h2>Book Your Storage Unit Now <br /> & Simplify Your Life!</h2>
-          <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Quisque malesuada mi vel lectus gravida, tristique pulvinar dapibus leo.</p>
-          <div className="booking-image-placeholder"></div>
+          <p className="label">Book a Unit</p>
+          <h2>Need a Storage Spot?</h2>
+          <p>Fill this out real quick and we'll get back to you.</p>
+          <div className="booking-image-placeholder" />
         </div>
         <form className="booking-form" onSubmit={handleSubmit}>
           <div className="two-inputs">
             <div>
-              <label>Your Name *</label>
+              <label htmlFor="name">Name *</label>
               <input
-                type="text"
+                id="name"
                 name="name"
-                placeholder="Your name"
+                type="text"
                 value={form.name}
                 onChange={handleChange}
+                placeholder="Name"
                 required
               />
             </div>
             <div>
-              <label>Email *</label>
+              <label htmlFor="email">Email *</label>
               <input
-                type="email"
+                id="email"
                 name="email"
-                placeholder="Email"
+                type="email"
                 value={form.email}
                 onChange={handleChange}
+                placeholder="Email"
                 required
               />
             </div>
           </div>
           <div>
-            <label>Choose Unit *</label>
+            <label htmlFor="selectedUnit">Unit Size *</label>
             <input
-              type="text"
+              id="selectedUnit"
               name="selectedUnit"
-              placeholder="Choose Unit"
+              type="text"
               value={form.selectedUnit}
               onChange={handleChange}
-              required />
-          </div>
-          <div>
-            <label>Storage Purpose *</label>
-            <textarea
-              name="purpose"
-              placeholder="Describe your storage purpose..."
-              rows="4"
-              value={form.purpose}
-              onChange={handleChange}
+              placeholder="Small/medium/big"
               required
             />
           </div>
-          <button type="submit" className="booking-submit">
-            Book Unit
-          </button>
-          {result && <p className="booking-result">{result}</p>}
+          <div>
+            <label htmlFor="purpose">What are you storing? *</label>
+            <textarea id="purpose" name="purpose" rows="4" value={form.purpose} onChange={handleChange} 
+            placeholder="Describe your storgae purpose so that we can match your request" required/>
+          </div>
+          <button type="submit" className="booking-submit" disabled={sending}>{sending ? "Sending..." : "Send"}</button>
+          {msg && (
+            <p className="booking-result">{msg}</p>
+          )}
         </form>
       </div>
     </section>

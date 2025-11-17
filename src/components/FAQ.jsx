@@ -8,32 +8,42 @@ function FAQ() {
   useEffect(() => {
     fetch("https://win25-jsf-assignment.azurewebsites.net/api/faqs")
       .then((res) => res.json())
-      .then((data) => setFaqs(data))
-      .catch((err) => console.error("Error fetching FAQs:", err));
+      .then((data) => {
+        if (data && data.length) {
+          setFaqs(data);
+        }
+      })
+      .catch((err) => {
+        console.log(err);
+      });
   }, []);
 
-  const toggleFAQ = (index) => {
-    setOpenIndex(openIndex === index ? null : index);
+  const toggleFAQ = (i) => {
+    if (openIndex === i) {
+      setOpenIndex(null);
+    } else {
+      setOpenIndex(i);
+    }
   };
-
   return (
     <div className="faq-section">
       <div className="faq-inner">
         <div className="faq-left">
           <p className="label">FAQ</p>
-          <h2>Frequently Ask Questions</h2>
-          <p>Learn more about our secure, convenient storage options. We offer flexible plans, top-tier security, and expert support for all your storage needs.</p>
+          <h2>Questions People Usually Ask</h2>
+          <p>Some things people often wonder about. Maybe this helps.</p>
         </div>
         <div className="faq-right">
-          {faqs.map((faq, index) => (
-            <div className={`faq-item ${openIndex === index ? "open" : ""}`}
-              key={faq.id}
-              onClick={() => toggleFAQ(index)}>
+          {faqs.map((faq, i) => (
+            <div
+              key={faq.id || i}
+              className={`faq-item ${openIndex === i ? "open" : ""}`}
+              onClick={() => toggleFAQ(i)}>
               <div className="faq-question">
                 {faq.title}
-                <span className="arrow">{openIndex === index ? "−" : "+"}</span>
+                <span className="arrow">{openIndex === i ? "-" : "+"}</span>
               </div>
-              {openIndex === index && (
+              {openIndex === i && (
                 <div className="faq-answer">
                   <p>{faq.description}</p>
                 </div>

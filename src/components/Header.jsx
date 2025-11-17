@@ -1,4 +1,4 @@
-import { Link } from "react-router-dom";   // <-- needed for routing
+import { Link } from "react-router-dom";
 
 import contactIcon from '../img/contact-header.svg';
 import contactPhone from '../img/phone-header.svg';
@@ -49,9 +49,7 @@ function Header() {
                     <li><Link to="/services">Services</Link></li>
                     <li><Link to="/contact">Contact Us</Link></li>
                 </ul>
-                <div className="button-navbar">
-                    <p>Get Started</p>
-                </div>
+                <Link to="/booking" className="button-navbar"><p>Book now</p></Link>
             </nav>
         </>
     );
